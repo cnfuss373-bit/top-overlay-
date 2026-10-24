@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.top-bar {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+.left-logo {
+    background: linear-gradient(90deg, #03133c, #06449a);
+    border: 2px solid #f5cc59;
+    border-radius: 45px;
+    padding: 15px 25px;
+    color: white;
+    box-shadow: 0 0 12px #168bff;
+}
+
+.left-logo h2 {
+    margin: 0;
+    color: #ffd65c;
+    font-size: 28px;
+}
+
+.left-logo p {
+    margin: 5px 0 0;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.clock {
+    background: #03163f;
+    border: 2px solid #f5cc59;
+    border-radius: 15px;
+    padding: 12px 20px;
+    color: white;
+    text-align: center;
+}
+
+#time {
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#date {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.right-logo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #073b91, #020b27);
+    border: 4px solid #f5cc59;
+    box-shadow: 0 0 15px #168bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.right-logo .symbol {
+    color: #ffd65c;
+    font-size: 25px;
+}
+
+.right-logo h3 {
+    margin: 3px 0;
+    font-size: 17px;
+}
+
+.live {
+    background: #ed1239;
+    padding: 4px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+
+    <div class="left-logo">
+        <h2>GURBANI RAS</h2>
+        <p>KIRTAN | SIMRAN | DARSHAN</p>
+    </div>
+
+    <div class="clock">
+        <div id="time">00:00 AM</div>
+        <div id="date">DATE</div>
+    </div>
+
+    <div class="right-logo">
+        <div class="symbol">☬</div>
+        <h3>GURBANI RAS</h3>
+        <div class="live">LIVE</div>
+    </div>
+
+</div>
+
+<script>
+function updateClock() {
+    const now = new Date();
+
+    document.getElementById("time").textContent =
+        now.toLocaleTimeString("en-IN", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true
+        });
+
+    document.getElementById("date").textContent =
+        now.toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric"
+        });
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+</script>
+
+</body>
+</html>
